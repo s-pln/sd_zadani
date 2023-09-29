@@ -1,0 +1,27 @@
+{block content}
+<p><a n:href="Sign:out">odhlásit</a></p>
+	<h1>Používatelé</h1>
+	<div class="tableborder">
+        <table class="user">
+            <tr>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>E-mail</th>
+                <th></th>
+                <th></th>
+            </tr>
+        {foreach $users as $usr}	
+        
+            <tr id="{$usr->id}">
+                <td>{$usr->name}</td>
+                <td>{$usr->surname}</td>
+                <td>{$usr->email}</td>
+                <td><a href="{link User:show $usr->id}" n:if="$user->isLoggedIn()">zobrazit</a></td>
+                <td><a href="{link User:edit $usr->id}" n:if="$user->isLoggedIn()">upravit</a></td>
+            </tr>
+        
+        {/foreach}    
+        </table>
+	</div>
+    <p><a n:href="User:create" n:if="$user->isLoggedIn()">Nový používatel</a></p>
+{/block}

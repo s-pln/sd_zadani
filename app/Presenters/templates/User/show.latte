@@ -1,0 +1,25 @@
+{block content}
+<p><a n:href="Home:default">← zpět na výpis používatelů</a> <a n:href="Sign:out">odhlásit</a></p>
+	<h1>{$usr->name} {$usr->surname}</h1>
+
+	<div class="tableborder">
+        <table class="usr">
+            <tr>
+                <th>Jméno</th>
+				<td>{$usr->name}</td>
+			</tr>
+			<tr>
+                <th>Příjmení</th>
+				<td>{$usr->surname}</td>
+			</tr>
+			<tr>
+                <th>E-mail</th>
+				<td>{$usr->email}</td>
+			</tr> 
+        </table>
+	</div>
+	<p><a n:href="User:edit $usr->id" n:if="$user->isLoggedIn()">Upravit používatela</a> <a n:href="delete!, id => $usr->id" onClick="return confirm('Opravdu smazat?');">Smazat</a></p>
+
+	
+
+{/block}

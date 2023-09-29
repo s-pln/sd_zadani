@@ -1,0 +1,6 @@
+config/local.neon
+config/common.neon
+.htaccess
+vendor
+temp
+log

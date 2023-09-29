@@ -1,0 +1,34 @@
+parameters:
+
+
+application:
+	#catchExceptions: true
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+latte:
+	strictTypes: yes
+
+
+session:
+	expiration: 14 days
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+services:
+	- App\Auth\MyAuthenticator
+
+extensions:
+	nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+	nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+
+nextras.orm:
+	model: App\Model\ModelU
+
+nextras.dbal: [ driver: 'mysqli', host: 'localhost', databaes: 'sddb', username: 'root', password: '' ]
+
+
